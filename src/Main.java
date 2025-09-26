@@ -53,7 +53,8 @@ public class Main {
             } else if (escolha == 3) {
                 defender(dividirAtaque);
             } else if (escolha == 4) {
-                poderEspecial(vidaMonstro);
+                vidaMonstro = poderEspecial(vidaMonstro);
+
             } else if (escolha == 5) {
                 // TODO: chamar a função fugir()
                 // Essa função deve:
@@ -135,11 +136,10 @@ public class Main {
     //PODER ESPECIAL
     public static int poderEspecial(int vidaMonstro) {
 
-        //  2. Causar 25 de dano fixo no monstro.
-        int poderEspecial = 25;
+        int poderEspecial = 25;  //Dano fixo
         if (especialDisponivel) {
             vidaMonstro = vidaMonstro - poderEspecial;
-            System.out.println("Taffeson usou o poder especial!");
+            System.out.println("💥 Taffeson usou o poder 💥 ESPECIAL!💥 ");
             especialDisponivel = false;
         } else {
             System.out.println("❌ O poder especial já foi usado!");
