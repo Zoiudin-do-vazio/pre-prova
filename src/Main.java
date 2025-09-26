@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     static boolean dividirAtaque = false;
+    static boolean especialDisponivel = true;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -12,7 +13,8 @@ public class Main {
         int vidaMonstro = 50;
         int pocao = 2;
         int xp = 0;
-        boolean especialDisponivel = true;
+
+        //Controle de Poder Especial, pode ser usado somente 1x
 
 
         // História inicial
@@ -23,6 +25,7 @@ public class Main {
 
         System.out.println("Bem-vindo ao RPG das Funções!");
         System.out.println("Ajude Taffeson a derrotar o monstro para salvar o vilarejo.\n");
+
 
         while (vidaHeroi > 0 && vidaMonstro > 0) {
             System.out.println("\n❤️ Vida de Taffeson: " + vidaHeroi + " | 🐉 Vida do Monstro: " + vidaMonstro);
@@ -37,26 +40,20 @@ public class Main {
             int escolha = sc.nextInt();
 
             if (escolha == 1) {
+
                 int danoDoAtaque = atacar(vidaMonstro, rand);
                 vidaMonstro -= danoDoAtaque;
-                System.out.println("Seu ataque Causou " + danoDoAtaque + " De dano");
+                System.out.println("Taffeson Causou " + danoDoAtaque + " de dano");
+
             } else if (escolha == 2) {
-                usarPocao(pocao, vidaHeroi);
+
+                vidaHeroi = usarPocao(vidaHeroi, pocao);
                 pocao--;
+
             } else if (escolha == 3) {
                 defender(dividirAtaque);
             } else if (escolha == 4) {
-                // TODO: chamar a função poderEspecial()
-                // Essa função deve:
-                // 1. Só poder ser usada UMA vez no jogo.
-                // 2. Causar 25 de dano fixo no monstro.
-                // 3. Mostrar mensagens ("Taffeson usou o poder especial!").
-                // if (especialDisponivel) {
-                //     vidaMonstro = poderEspecial(vidaMonstro);
-                //     especialDisponivel = false;
-                // } else {
-                //     System.out.println("❌ O poder especial já foi usado!");
-                // }
+                poderEspecial(vidaMonstro);
             } else if (escolha == 5) {
                 // TODO: chamar a função fugir()
                 // Essa função deve:
@@ -99,7 +96,7 @@ public class Main {
     }
 
     // =============================
-    // Funções DEVEM implementar, como exemplo
+    //          Funções
     // =============================
 
     //ATACAR
@@ -116,8 +113,8 @@ public class Main {
     // public static int poderEspecial(int vidaMonstro) { ... }
 
     //POCAO
-    public static int usarPocao(int pocao, int vidaHeroi) {
-        if (pocao > 0) {
+    public static int usarPocao(int vidaHeroi, int pocao) {
+        if (pocao >= 0) {
             vidaHeroi += 15;
             System.out.println("Você usou uma poção!");
             System.out.println("Vida Atual: " + vidaHeroi);
@@ -135,6 +132,20 @@ public class Main {
 
     }
 
+    //PODER ESPECIAL
+    public static int poderEspecial(int vidaMonstro) {
+
+        //  2. Causar 25 de dano fixo no monstro.
+        int poderEspecial = 25;
+        if (especialDisponivel) {
+            vidaMonstro = vidaMonstro - poderEspecial;
+            System.out.println("Taffeson usou o poder especial!");
+            especialDisponivel = false;
+        } else {
+            System.out.println("❌ O poder especial já foi usado!");
+        }
+        return vidaMonstro;
+    }
 }
 
 
