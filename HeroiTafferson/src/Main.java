@@ -63,7 +63,7 @@ public class Main {
                 // Essa função deve:
                 // 1. Mostrar mensagem de que Taffeson fugiu da batalha.
                 // 2. Encerrar o jogo imediatamente.
-                fujão(escolha);
+                fugir(escolha);
                 return;
             } else {
                 System.out.println("Opção inválida!");
@@ -170,7 +170,7 @@ public class Main {
     }
 
     // FUGIR
-    public static boolean fujão(int escolha) {
+    public static boolean fugir(int escolha) {
         if (escolha == 5) {
             fugiu = true;
         }
