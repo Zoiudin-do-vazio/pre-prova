@@ -5,13 +5,14 @@ public class Main {
     static boolean dividirAtaque = false;
     static boolean especialDisponivel = true;
     static boolean fugiu = false;
+    static int pocao = 2;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
 
         int vidaHeroi = 60;
         int vidaMonstro = 50;
-        int pocao = 2;
         int xp = 0;
 
         //Controle de Poder Especial, pode ser usado somente 1x
@@ -49,8 +50,8 @@ public class Main {
 
             } else if (escolha == 2) {
 
-                vidaHeroi = usarPocao(vidaHeroi, pocao);
-               if(pocao > 0){ pocao--;}
+                vidaHeroi = usarPocao(vidaHeroi);
+
 
             } else if (escolha == 3) {
                 defender(escolha);
@@ -72,7 +73,6 @@ public class Main {
             // Turno do monstro
             //TODO leve essa logica para uma função chamada Ataque de Mostro()
             int ataqueMonstro = rand.nextInt(10) + 5; // dano entre 5 e 15
-            System.out.println(ataqueMonstro);
             boolean critico = rand.nextInt(100) < 15; // 15% de chance crítico
             if (critico) {
                 ataqueMonstro *= 2;
@@ -92,12 +92,12 @@ public class Main {
             // 1. Gerar um número aleatório entre 10 e 30.
             // 2. Retornar esse valor como experiência (XP).
             // 3. Mostrar mensagem de vitória com o XP ganho.
-           xp = ganharxp(xp, rand);
+            xp = ganharxp(xp, rand);
             System.out.println("🎉 Taffeson derrotou o monstro e ganhou " + xp + " XP!");
             System.out.println("🏆 O vilarejo foi salvo graças à bravura de Taffeson!");
         } else if (vidaHeroi <= 0) {
 
-                System.out.println("💀 Taffeson foi derrotado... o vilarejo está em perigo!");
+            System.out.println("💀 Taffeson foi derrotado... o vilarejo está em perigo!");
 
         } else {
             System.out.println("\uD83C\uDFC3\uD83D\uDCA8 Tafferson fugiu... e agora quem irá nos defender (nao irá ser o chapolin)");
@@ -125,9 +125,10 @@ public class Main {
     // public static int poderEspecial(int vidaMonstro) { ... }
 
     //POCAO
-    public static int usarPocao(int vidaHeroi, int pocao) {
+    public static int usarPocao(int vidaHeroi) {
         if (pocao > 0) {
             vidaHeroi += 15;
+            pocao--;
             System.out.println("Você usou uma poção!");
             System.out.println("Vida Atual: " + vidaHeroi);
         } else {
@@ -138,12 +139,13 @@ public class Main {
 
 
     //DEFENDER
-    public static boolean defender( int escolha) {
+    public static boolean defender(int escolha) {
 
-       if (escolha == 3){dividirAtaque = true;
-           System.out.println("\uD83D\uDEE1 Taffe está Defendendo (Dano reduzido pela metade)");}
-       else dividirAtaque = false;
-return dividirAtaque;
+        if (escolha == 3) {
+            dividirAtaque = true;
+            System.out.println("\uD83D\uDEE1 Taffe está Defendendo (Dano reduzido pela metade)");
+        } else dividirAtaque = false;
+        return dividirAtaque;
     }
 
     //PODER ESPECIAL
@@ -159,15 +161,19 @@ return dividirAtaque;
         }
         return vidaMonstro;
     }
+
     // XP
-    public static int ganharxp (int xp , Random rand ){
+    public static int ganharxp(int xp, Random rand) {
         xp = rand.nextInt(20) + 10;
 
         return xp;
-}
-   // FUGIR
-    public static boolean fujão(int escolha){
-      if (escolha == 5) {fugiu = true;}
+    }
+
+    // FUGIR
+    public static boolean fujão(int escolha) {
+        if (escolha == 5) {
+            fugiu = true;
+        }
         return fugiu;
     }
 
