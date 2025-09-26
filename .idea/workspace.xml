@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00d1d1cc-d506-4aa0-800d-933d9b99210e" name="Changes" comment="Arrumando bug de somatória vida função poção">
+    <list default="true" id="00d1d1cc-d506-4aa0-800d-933d9b99210e" name="Changes" comment="Add Poder Especial">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +38,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
@@ -78,7 +79,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758852737367</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add Poder Especial">
+      <option name="closed" value="true" />
+      <created>1758853023622</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1758853023622</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,6 +96,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add Comentarios e Função usarPocao()" />
     <MESSAGE value="Arrumando bug de somatória vida função poção" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arrumando bug de somatória vida função poção" />
+    <MESSAGE value="Add Poder Especial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Poder Especial" />
   </component>
 </project>

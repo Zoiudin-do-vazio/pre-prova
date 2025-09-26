@@ -30,12 +30,14 @@ public class Main {
         while (vidaHeroi > 0 && vidaMonstro > 0) {
             System.out.println("\n❤️ Vida de Taffeson: " + vidaHeroi + " | 🐉 Vida do Monstro: " + vidaMonstro);
             System.out.println("🎒 Poções restantes: " + pocao);
+            System.out.println("==================");
             System.out.println("Escolha sua ação:");
             System.out.println("1 - Atacar");
             System.out.println("2 - Usar Poção");
             System.out.println("3 - Defender");
             System.out.println("4 - Poder Especial");
             System.out.println("5 - Fugir");
+            System.out.println(":");
 
             int escolha = sc.nextInt();
 
@@ -106,7 +108,7 @@ public class Main {
         boolean critico = rand.nextInt(100) < 20;
         if (critico) {
             ataque *= 2;
-            System.out.println("💥 Voce Acertou um CRITICO!!");
+            System.out.println(" Voce Acertou um ✨CRÍTICO!!✨");
         }
         return ataque;
 
@@ -115,7 +117,7 @@ public class Main {
 
     //POCAO
     public static int usarPocao(int vidaHeroi, int pocao) {
-        if (pocao >= 0) {
+        if (pocao > 0) {
             vidaHeroi += 15;
             System.out.println("Você usou uma poção!");
             System.out.println("Vida Atual: " + vidaHeroi);
@@ -128,7 +130,7 @@ public class Main {
 
     //DEFENDER
     public static void defender(boolean dividirAtaque) {
-        System.out.println("Taffe está Defendendo (Dano reduzido pela metade)");
+        System.out.println("\uD83D\uDEE1 Taffe está Defendendo (Dano reduzido pela metade)");
         dividirAtaque = true;
 
     }
@@ -139,13 +141,15 @@ public class Main {
         int poderEspecial = 25;  //Dano fixo
         if (especialDisponivel) {
             vidaMonstro = vidaMonstro - poderEspecial;
-            System.out.println("💥 Taffeson usou o poder 💥 ESPECIAL!💥 ");
+            System.out.println("\uD83D\uDDE1 Taffeson usou o poder \uD83C\uDF20 ESPECIAL! \uD83C\uDF20 ");
             especialDisponivel = false;
         } else {
             System.out.println("❌ O poder especial já foi usado!");
         }
         return vidaMonstro;
     }
+
+    //FUGIR
 }
 
 
