@@ -129,10 +129,10 @@ public class Main {
         if (pocao > 0) {
             vidaHeroi += 15;
             pocao--;
-            System.out.println("Você usou uma poção!");
-            System.out.println("Vida Atual: " + vidaHeroi);
+            System.out.println("\uD83C\uDF75 Você usou uma poção! +15 ");
+            System.out.println("❤️ Vida Atual:" + vidaHeroi);
         } else {
-            System.out.println("Você não tem mais Poções");
+            System.out.println("❌ Você não tem mais Poções! \uD83C\uDF75");
         }
         return vidaHeroi;
     }
