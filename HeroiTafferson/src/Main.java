@@ -52,8 +52,11 @@ public class Main {
 
 
             } else if (escolha == 3) {
+
                 defender(escolha);
+
             } else if (escolha == 4) {
+
                 vidaMonstro = poderEspecial(vidaMonstro);
 
             } else if (escolha == 5) {
@@ -156,6 +159,7 @@ public class Main {
         if (especialDisponivel) {
             vidaMonstro = vidaMonstro - poderEspecial;
             System.out.println("\uD83D\uDDE1 Taffeson usou o poder \uD83C\uDF20 ESPECIAL! \uD83C\uDF20 ");
+            System.out.println(" ⭐ Taffeson causou " + poderEspecial + " de dano! ⭐");
             especialDisponivel = false;
         } else {
             System.out.println("❌ O poder especial já foi usado!");
@@ -174,6 +178,7 @@ public class Main {
     public static boolean fugir(int escolha) {
         if (escolha == 5) {
             fugiu = true;
+            System.out.println("\uD83D\uDCAB Tafferson saiu correndo da luta");
         }
         return fugiu;
     }
