@@ -44,9 +44,7 @@ public class Main {
 
             if (escolha == 1) {
 
-                int danoDoAtaque = atacar(vidaMonstro, rand);
-                vidaMonstro -= danoDoAtaque;
-                System.out.println("Taffeson Causou " + danoDoAtaque + " de dano");
+                vidaMonstro = atacar(vidaMonstro, rand);
 
             } else if (escolha == 2) {
 
@@ -104,7 +102,6 @@ public class Main {
 
         }
 
-
     }
 
     // =============================
@@ -117,7 +114,11 @@ public class Main {
         boolean critico = rand.nextInt(100) < 20;
         if (critico) {
             ataque *= 2;
-            System.out.println(" Voce Acertou um ✨CRÍTICO!!✨");
+            System.out.println("💥 Taffeson atacou!  'Crítico!'");
+            System.out.println(" Taffeson Causou " + ataque + " de dano!");
+        } else {
+            System.out.println("💥 Taffeson atacou! e causou " + ataque + " de dano!");
+
         }
         return ataque;
 
@@ -139,13 +140,13 @@ public class Main {
 
 
     //DEFENDER
-    public static boolean defender(int escolha) {
+    public static void defender(int escolha) {
 
         if (escolha == 3) {
             dividirAtaque = true;
             System.out.println("\uD83D\uDEE1 Taffe está Defendendo (Dano reduzido pela metade)");
         } else dividirAtaque = false;
-        return dividirAtaque;
+
     }
 
     //PODER ESPECIAL
